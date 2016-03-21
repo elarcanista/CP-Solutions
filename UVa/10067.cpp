@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-set<int>forb;
+unordered_set<int>forb;
 
 int readInt(){ //reads a 4 digit number with digits separated by spaces
 	int pot = 1000;
