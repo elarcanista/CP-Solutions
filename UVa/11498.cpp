@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-//11498 - Division of Nlogonia
+//UVa 11498 - Division of Nlogonia
 
 int main() {
 	ios_base::sync_with_stdio(false);
