@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-//10067 - Playing with Wheels
+//UVa 10067 - Playing with Wheels
 
 unordered_set<int>forb;
 
