@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+//UVa 280 - Vertex
 const int MAXV = 100;
 vector<int> g[MAXV];
 bool visited[MAXV];
