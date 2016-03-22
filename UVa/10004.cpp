@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//10004 - Bicoloring
 
 const int MAXV = 199;
 vector<int> g [MAXV];
