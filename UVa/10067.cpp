@@ -14,6 +14,8 @@ int readInt(){ //reads a 4 digit number with digits separated by spaces
 	}
 	return num;
 }
+
+//bfs to check minimun distance
 int bfs(int start, int target){
 	if (start == target) return 0;
 	queue<pair<int, int>>q;
