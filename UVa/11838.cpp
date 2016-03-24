@@ -32,13 +32,13 @@ void scc(int u){ //Tarjan's algorithm for SCC
 		if(visited[V[u][i]])num_min[u] = min(num_min[u], num_min[V[u][i]]);
 	}
 	if (num[u] == num_min[u]) {
-    ++sum;
-    int v;
-    do {
-      v = s.top(); s.pop();
-      visited[v] = 0;
-    } while (u != v);
-  }
+		++sum;
+    	int v;
+    	do {
+      		v = s.top(); s.pop();
+      		visited[v] = 0;
+    	} while (u != v);
+  	}
 } 
 
 int main() {
