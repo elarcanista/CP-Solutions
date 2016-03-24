@@ -15,7 +15,7 @@ bool dif1(string &a, string &b){ // checks if 2 strings differ by 1 letter
 	}
 	return true;
 }
-int bfs(string &a, string &b){ //runs bfs trying to reach b from a and returns distance
+int bfs(string &a, string &b){ //runs bfs trying to reach b from a and returns distance 
 	if(a == b) return 0;
 	queue<pair<string, int> > q;
 	q.push({a, 0});
