@@ -23,7 +23,7 @@ int bfs(int _r, int _c){
 	v[_r].replace(_c, 1, "."); 
 	while(!q.empty()){
 		pair<int, int> p = q.front(); q.pop();
-		for(int i = 0; i < 8; ++i){
+		for(int i = 0; i < 8; ++i){ 
 			int newr = p.first + r[i];
 			int newc = p.second + c[i];
 			//if it is a valid coordinate and it is water, count it
