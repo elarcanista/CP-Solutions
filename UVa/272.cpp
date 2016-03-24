@@ -17,7 +17,7 @@ int main() {
 					open = false;
 				}
 			}else{
-				cout << str[i]; // prints everything that is not a quote
+				cout << str[i]; // prints everything that is not a quote 
 			}
 		} 
 		cout << "\n";
