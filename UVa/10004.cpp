@@ -18,7 +18,7 @@ void cleancolor(){
 	}
 }
 
-void bfs(){ //runs bfs on graph and checks bicoloreability
+void bfs(){ //runs bfs on graph and checks if it is bipartite
 	queue<int> q;
 	q.push(0);
 	color[0] = 1;
