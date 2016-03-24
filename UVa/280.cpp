@@ -55,7 +55,7 @@ int main() {
 			dfs(--s);
 			count(V);
 			cleanvisited();
-		}
+		} 
 	}
 	return 0;
 }
