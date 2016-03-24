@@ -1,5 +1,5 @@
 //Author: Andrés Felipe Ortega Montoya
-//UVa 11060 - Beverages
+//UVa 11060 - Beverages 
 #include <bits/stdc++.h>
 using namespace std;
 
