@@ -2,7 +2,7 @@
 using namespace std;
 typedef long long ll;
 
-//UVa 11902 - Dominator
+//UVa 11902 - Dominator 
 const int MAXV = 100;
 int n;
 int v[MAXV][MAXV];
