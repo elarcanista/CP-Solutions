@@ -64,7 +64,7 @@ int main() {
 			cout << word << " " << b << " " << bfs(word, b) << "\n";
 			visited.clear();
 		}
-		if(TC)cout << "\n";
+		if(TC)cout << "\n"; 
 	}
 	return 0;
 }
