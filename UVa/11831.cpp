@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 //UVa 11831 - Sticker Collector Robot
-
+ 
 const int MAXV = 100;
 const int r []= {-1, 0, 1, 0}; //{N, E, S, W}
 const int c []= {0, 1, 0, -1};
