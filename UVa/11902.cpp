@@ -22,7 +22,7 @@ void clean(){ //resets v and dom
 	}
 }
 
-//runs dfs from u ignoring node p. visited nodes are put onto visited
+//runs dfs from u ignoring node p. visited nodes are put onto visited 
 void dfs(int u, int p){ 
 	visited.insert(u);
 	for(int i = 0; i < n; ++i){
