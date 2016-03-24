@@ -20,7 +20,7 @@ void clean_field(){
 	}
 }
 
-void fill_field(int R, int C){ //fills the field to excecute
+void fill_field(int R, int C){ //fills the field to excecute 
 	string line;
 	for(int i = 0; i < R; ++i){
 		getline(cin, line);
