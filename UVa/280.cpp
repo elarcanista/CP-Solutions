@@ -23,7 +23,7 @@ void cleangraph (){
 void cleanvisited(){
 	for(int i = 0; i < MAXV; ++i){
 		visited[i] = false;
-	}
+	} 
 }
 
 void count(int m){ //counts unreachable vertexs
