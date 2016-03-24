@@ -17,7 +17,7 @@ int main() {
 				cout << "divisa\n";	
 				continue;
 			} 
-			if(x > n) cood[0] = 'E'; // prints its section
+			if(x > n) cood[0] = 'E'; // prints its section 
 			else cood[0] = 'O';
 			if(y > m) cood[1] = 'N';
 			else cood[1] = 'S';
