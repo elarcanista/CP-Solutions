@@ -1,7 +1,7 @@
 //Author: Andrés Felipe Ortega Montoya
 //UVa 11838 - Come and Go
 #include <bits/stdc++.h>
-using namespace std;
+using namespace std; 
 
 const int MAXV = 2005;
 vector<int> V [MAXV];
