@@ -21,7 +21,7 @@ int main() {
 			else cood[0] = 'O';
 			if(y > m) cood[1] = 'N';
 			else cood[1] = 'S';
-			cout << cood[1] << cood[0] << '\n';
+			cout << cood[1] << cood[0] << '\n'; 
 		}
 	}
 	return 0;
