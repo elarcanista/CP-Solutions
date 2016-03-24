@@ -53,6 +53,6 @@ int main() {
 			g[b].push_back(a);
 		}
 		bfs();
-	}
+	} 
 	return 0;
 }
