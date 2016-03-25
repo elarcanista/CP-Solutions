@@ -1,16 +1,17 @@
 //Author: Andrés Felipe Ortega Montoya
+//13057 - Prove Them All
 #include <bits/stdc++.h>
 using namespace std;
 
-const int MAXV = 10000;
-vector<int> V[MAXV];
-int disc[MAXV];
-int dmin[MAXV];
-stack<int> s;
-bool stacked[MAXV];
-int sum, counter;
-int snode[MAXV];
-int nV[MAXV];
+const int MAXV = 10000; // max num of vertex
+vector<int> V[MAXV]; // stores graph
+int disc[MAXV]; //stores order of traversal
+int dmin[MAXV]; //stores minimum disc reachable(only back-edges)
+stack<int> s; //helps to identify differen scc
+bool stacked[MAXV]; //tells if a node is on s
+int sum, counter; //tells how many scc are there - counts number of visited vertex
+int snode[MAXV]; //stores to which scc belong each vertex
+int nV[MAXV]; //stores how many edges enter the scc
 
 void reset(){
 	for(int i = 0; i < MAXV; ++i){
@@ -23,6 +24,7 @@ void reset(){
 	sum = counter = 0;
 }
 
+//tarjan's strongly connected components
 void scc(int u){
 	disc[u] = dmin[u] = counter++;
 	s.push(u);
@@ -41,7 +43,6 @@ void scc(int u){
 		++sum;
 	}
 }
-
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -62,19 +63,17 @@ int main() {
 		
 		for(int u = 0; u < m; ++u){
 			for(auto &v: V[u]){
-				if(snode[u] != snode[v]){
+				if(snode[u] != snode[v]){ //if u and v are from differents scc sum 1 to income
 					++nV[snode[v]];
-					//cout << u << " " << v << " " << snode[v] << " " << "\n";
 				} 
 			}
 		}
 		
 		int ans = 0;
-		for(int u = 0; u < sum; ++u){
-			//cout << nV[u] << "\n";
+		for(int u = 0; u < sum; ++u){ //couns scc with 0 income
 			if(!nV[u]) ++ans;
 		}
-		cout << "Case " << i << ": " << ans;
+		cout << "Case " << i << ": " << ans << "\n";
 	}
 	return 0;
 }
