@@ -23,7 +23,7 @@ int bfs(int start, int target){
 	forb.insert(start);
 	while(!q.empty()){
 		pair<int, int> t = q.front(); q.pop();
-		int pot = 1000; 
+		int pot = 1000;
 		for(int i = 0; i < 4; ++i, pot /= 10){ // excecutes 1 time per digit
 			int sum, res;
 			int digit = (t.first / pot) % 10; //the digit to analyse
