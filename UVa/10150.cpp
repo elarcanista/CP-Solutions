@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//Author: Andres Felipe Ortega Montoya
 //UVa 10150 - Doublets
 unordered_set<string> visited;
 map<string, string> back; //stores from which node another node is called
