@@ -1,25 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
-//UVa 429 - Word Transformation
+//UVa 10150 - Doublets
 unordered_set<string> visited;
-map<string, string> back;
+map<string, string> back; //stores from which node another node is called
+vector<string> lengths [18]; //stores all words separated by length
 
+//compares two strings, first by length and then alphabetically
 struct compare {
-    bool operator()(const std::string& first, const std::string& second) {
+	//important const AFTER parameters, otherwise gives an error when calling .count on g or dic
+    bool operator()(const string& first, const string& second) const {
     	if(first.size() != second.size()) return first.size() < second.size();
     	for(int i=0; i < first.size() && i < second.size(); ++i) {
 	        if( first[i] != second[i]) return (first[i] < second[i]);
     	}
-    	return true;
+    	return false;
     }
 };
-map<string, vector<string>, compare> g;
+
+map<string, vector<string>, compare> g; //is a graph that connects doublets words
+set<string, compare> dic; //stores all words in dictionary
 
 void reset(){
 	for(auto &a: back) back[a.first] = "";
 }
 
-bool dif1(string &a, string &b){ // checks if 2 strings differ by 1 letter
+bool dif1(string a, string b){ // checks if 2 strings differ by 1 letter
 	if(a == b) return false;
 	bool dif = false;
 	for(int i = 0; i < a.size(); ++i){
@@ -31,13 +36,14 @@ bool dif1(string &a, string &b){ // checks if 2 strings differ by 1 letter
 	return true;
 }
 
+//traverse through father of a node recursively until it finds a root
 void print(string a){
 	if(back[a] == "") return;
 	print(back[a]);
 	cout << "\n" << a;
 }
 
-bool bfs(string &a, string &b){ //runs bfs trying to reach b from a and returns distance 
+bool bfs(string &a, string &b){ //runs bfs trying to reach b from a and if it's possible
 	queue<string> q;
 	q.push(a);
 	visited.insert(a);
@@ -65,32 +71,36 @@ int main() {
 	string word, b;
 	getline(cin, word);
 	while(word != ""){
+		for(int i = 0; i < 17; ++i){
+			lengths[i].clear();
+		}
 		back.clear();
 		visited.clear();
 		g.clear();
-		g[word];
+		dic.clear();
+		dic.insert(word);
+		lengths[word.size()].push_back(word);
 		while(getline(cin,word) && word != ""){ //fills dictionary
-			g[word];
-			for(auto &c: g){
-				string a = c.first;
-				if(a.size() > word.size()) continue;
-				if(dif1(word, a)){
-					g[word].push_back(a);
-					g[a].push_back(word);
+			if(!dic.count(word)){
+				dic.insert(word);
+				for(auto &c: lengths[word.size()]){
+					if(c.size() > word.size()) break;
+					if(dif1(word, c)){
+						g[word].push_back(c);
+						g[c].push_back(word);
+					}
 				}
+				lengths[word.size()].push_back(word);
 			}
 		}
-		getline(cin, word);/*
-		for(auto &a: g){
-			cout << a.first << ":\n";
-			for(auto &b: a.second) cout << b << "\n";
-		}*/
-		cout << g.size();
+		//runs test cases
+		getline(cin, word); 
 		while(word != ""){
 			reset();
 			stringstream ss(word);
 			ss >> word >> b;
-			if(bfs(word, b)){
+			if(word == b) cout << word;
+			else if(bfs(word, b)){
 				cout << word;
 				print(b);
 			}else cout << "No solution.";
