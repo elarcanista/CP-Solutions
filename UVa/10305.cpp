@@ -1,4 +1,4 @@
-//Author: Andrés Felipe Ortega Montoya
+//Author: Andrés Felipe Ortega Montoya 
 //UVa 10305 - Ordering Tasks
 #include <bits/stdc++.h>
 using namespace std;
