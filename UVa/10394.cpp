@@ -36,7 +36,7 @@ int main() {
 	cin.tie(NULL);
 	ll in;
 	sieve(); //generate all prime numbers
-	/while(cin >> in){
+	while(cin >> in){
 		cout << "(" << twins[in-1LL].first << ", " << twins[in-1LL].second << ")\n";
 		cout.flush();
 	}
