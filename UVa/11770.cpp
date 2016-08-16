@@ -1,90 +1,75 @@
+//Author: Andrés Felipe Ortega Montoya
 //UVa 11770 - Lighting Away
 //O(|V|+|E|)
 #include <bits/stdc++.h>
 using namespace std;
 
-typedef long long ll;
-typedef pair<int, int> ii;
-
-const int INFI = 1 << 30;
-const ll INFLL = 1LL << 62;
-
-const int MAXN = 301;
-vector<int> g[MAXN];
+const int MAXV = 10001; //max number of vertices
+vector<int> g [MAXV]; //directed graph of dominoes
+int low[MAXV], ind[MAXV], con[MAXV], in[MAXV]; //con: scc a vertex belong, in: income of each scc
+bool stacked[MAXV];
 stack<int> s;
-bool stacked[MAXN];
-int indexn[MAXN];
-int lowest[MAXN];
-int scc[MAXN];
-int in[MAXN];
-int counter;
-int sccCounter;
+int turn, snode;
+
 
 void reset(){
-	for(int i = 0; i < MAXN; ++i){
+	for(int i = 0; i < MAXV; ++i){
 		g[i].clear();
-		stacked[i] = false;
-		indexn[i] = lowest[i] = scc[i] = -1;
+		low[i] = ind[i] = con[i] = -1;
 		in[i] = 0;
+		stacked[i] = false;
 	}
-	//scc.clear();
-	while(!s.empty()) s.pop();
-	counter = 0;
-	sccCounter = 0;
+	while(!s.empty())s.pop();
+	turn = snode = 0;
 }
 
-void tarjan(int u){
-	lowest[u] = indexn[u] = counter++;
-	s.push(u);
+void scc(int u){ //find strongly connected components and marks to which scc belongs a node
+	ind[u] = low[u] = turn++;
 	stacked[u] = true;
+	s.push(u);
 	for(auto &v: g[u]){
-		if(indexn[v] == -1){
-			tarjan(v);
-			lowest[u] = min(lowest[u], lowest[v]);
-		}else if(stacked[v]){
-			lowest[u] = min(lowest[u], indexn[v]);
-		}
+		if(ind[v] == -1){
+			scc(v);
+			low[u] = min(low[u], low[v]);
+		}else if(stacked[v]) low[u] = min(low[u], ind[v]);
 	}
-	if(lowest[u] == indexn[u]){
+	if(ind[u] == low[u]){
 		int v;
 		do{
-			v = s.top();
-			s.pop();
-			scc[v] = sccCounter;
+			v = s.top(); s.pop();
 			stacked[v] = false;
+			con[v] = snode;
 		}while(v != u);
-		++sccCounter;
+		++snode;
 	}
 }
 
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-	int V; cin >> V;
-	for(int z = 1; z <= V; ++z){
+	int TC; cin >> TC;
+	for(int z = 1; z <= TC; ++z){
 		reset();
-		int n, m; cin >> n >> m;
-		while(m--){
+		int n, l; cin >> n >> l;
+		while(l--){ //reads graph of dominos
 			int u, v; cin >> u >> v;
 			g[--u].push_back(--v);
 		}
-		for(int i = 0; i < n; ++i){
-			if(indexn[i] == -1){
-				tarjan(i);
-			}
+		for(int u = 0; u < n; ++u){ //finds scc
+			if(ind[u] == -1) scc(u);
 		}
-		int noIn = 0;
-		for(int u = 0; u < n; ++u){
+		//calculates income of each scc
+		for(int u = 0; u < n; ++u){ 
 			for(auto &v: g[u]){
-				if(scc[u] != scc[v]){
-					++in[scc[u]];
-				}
+				if(con[u] != con[v]) ++in[con[v]];
 			}
 		}
-		for(int i = 0; i < sccCounter; ++i){
-			if(!in[i]) ++noIn;
+		int hand = 0;
+		//counts scc with income 0
+		for(int i = 0; i < snode; ++i){
+			if(!in[i]) ++hand;
 		}
-		cout << "Case " << z << ": " << noIn << "\n";
+		cout << "Case " << z << ": " << hand << "\n";
 	}
 	return 0;
 }
