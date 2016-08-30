@@ -19,7 +19,6 @@ void queen(int m, int n){
 		return;
 	}
 	for(int i = 0; i < n; ++i){
-		//if(!s.count({m, i}) && !rw[i] && !ld[m-i+n-1] && !rd[m+i]){
 		if(s[m][i] != '*' && !rw[i] && !ld[m-i+n-1] && !rd[m+i]){
 			rw[i] = ld[m-i+n-1] = rd[m+i] = true;
 			queen(m+1, n);
