@@ -1,3 +1,5 @@
+//Author: Andres Felipe Ortega Montoya
+//CodeForces 230B - T-primes
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
