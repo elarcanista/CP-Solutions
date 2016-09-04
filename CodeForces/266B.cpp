@@ -1,3 +1,5 @@
+//Author: Andres Felipe Ortega Montoya
+//CodeForces 266B - Queue at the School
 #include <iostream>
 using namespace std;
 
