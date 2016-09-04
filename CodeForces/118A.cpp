@@ -1,3 +1,5 @@
+//Author: Andres Felipe Ortega Montoya
+//CodeForces 118A - String Task
 #include <bits/stdc++.h>
 using namespace std;
 
