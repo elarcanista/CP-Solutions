@@ -1,3 +1,5 @@
+//Author: Andres Felipe Ortega Montoya
+//CodeForces 1A - Theatre Square
 #include <iostream>
 #include <stdio.h>
 using namespace std;
