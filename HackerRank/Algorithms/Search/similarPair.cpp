@@ -1,5 +1,5 @@
 //Author: Andres Felipe Ortega Montoya
-//HackerRank - Similar Pair
+//HackerRank - Similar Pair 
 #include <bits/stdc++.h>
 using namespace std;
  
