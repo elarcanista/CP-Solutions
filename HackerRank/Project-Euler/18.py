@@ -1,5 +1,5 @@
-//Author: Andres Felipe Ortega Montoya - Luis Miguel Marin Loaiza
-//HackerRank Project Euler #18 - Maximum path sum I
+#Author: Andres Felipe Ortega Montoya - Luis Miguel Marin Loaiza
+#HackerRank Project Euler #18 - Maximum path sum I
 def maxsum(i,l):
 	print(i,l)
 	if l >= n:
