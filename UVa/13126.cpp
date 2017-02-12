@@ -32,16 +32,6 @@ struct trie{
     fillF();
   }
   trie(): id(maxId), f(this), out(new unordered_set<ll>), children(new map<char, trie*>){++maxId;}
-  /*~trie(){
-    try{
-      for(auto& a: *children){
-        if(a.second != NULL) delete a.second;
-      }
-      //if(children!= NULL)delete children;
-      //if(out!= NULL)delete out;
-      //if(f!= NULL)delete f;
-    }catch(...){}
-  }*/
  
   trie* g(char c){
     if(children->count(c)){
