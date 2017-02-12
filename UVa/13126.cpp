@@ -5,9 +5,11 @@
 using namespace std;
  
 typedef long long ll;
+const ll MAXN = 10e5;
+
 struct trie{
   static ll maxId;
-  static vector<ll>* C;
+  static ll C[MAXN];
   static ll k;
   static ll last;
   ll id;
@@ -75,9 +77,7 @@ struct trie{
  
  
   unordered_set<ll> matches(string T){
-    for(auto& c: T){
-      C->push_back(0);
-    }
+    memset(C, 0, sizeof(C));
     unordered_set<ll> matches;
     trie* q = this;
     for(ll i = 0; i < T.size(); ++i){
@@ -86,7 +86,7 @@ struct trie{
       }
       q = q->g(T[i]);
       for(auto& l: *(q->out)){
-        (*C)[i-l]+=(i >= l && i < T.size()-last);
+        C[i-l]+=(i >= l && i < T.size()-last);
       }
       matches.insert(q->out->begin(), q->out->end());
     }
@@ -97,7 +97,7 @@ struct trie{
 ll trie::maxId = 0;
 ll trie::k = 0;
 ll trie::last = 0;
-vector<ll>* trie::C = new vector<ll>;
+ll trie::C[MAXN];
 int main() {
   //ios_base::sync_with_stdio(false);
   //cin.tie(NULL);
@@ -110,14 +110,12 @@ int main() {
     trie::maxId = 0;
     trie::k = 0;
     trie::last = 0;
-    trie::C->clear();
     trie* root = new trie(P);
     root->matches(T);
     ll counter = 0;
-    for(ll i = 0; i < (trie::C)->size()-(trie::last-1)*(trie::last>0); ++i){
-      if((*(trie::C))[i] == trie::k)++counter;
+    for(ll i = 0; i < T.size()-(trie::last-1)*(trie::last>0); ++i){
+      if((trie::C)[i] == trie::k)++counter;
     }
     cout << counter << "\n";
-    //delete root;
   }
 }
