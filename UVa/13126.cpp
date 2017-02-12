@@ -5,7 +5,7 @@
 using namespace std;
  
 typedef long long ll;
-const ll MAXN = 10e5;
+const ll MAXN = 10e6;
 
 struct trie{
   static ll maxId;
@@ -77,7 +77,9 @@ struct trie{
  
  
   unordered_set<ll> matches(string T){
-    memset(C, 0, sizeof(C));
+    for (int i = 0; i < MAXN; ++i){
+      C[i] = 0;
+    }
     unordered_set<ll> matches;
     trie* q = this;
     for(ll i = 0; i < T.size(); ++i){
@@ -86,7 +88,7 @@ struct trie{
       }
       q = q->g(T[i]);
       for(auto& l: *(q->out)){
-        C[i-l]+=(i >= l && i < T.size()-last);
+        if(i >= l)C[i-l]+=(i < T.size()-last);
       }
       matches.insert(q->out->begin(), q->out->end());
     }
@@ -99,8 +101,8 @@ ll trie::k = 0;
 ll trie::last = 0;
 ll trie::C[MAXN];
 int main() {
-  //ios_base::sync_with_stdio(false);
-  //cin.tie(NULL);
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
   string P, T;
   while(cin >> T >> P){
     if(P.size() > T.size()){
