@@ -1,5 +1,5 @@
 //Author: Andres Felipe Ortega Montoya
-//HackerRank Project Euler #1 - Multiples of 3 and 5
+//HackerRank Project Euler #1 - Multiples of 3 and 5 
 #include <bits/stdc++.h>
 using namespace std;
  
