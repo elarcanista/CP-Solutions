@@ -1,14 +1,14 @@
+//Author: Andres Felipe Ortega Montoya
+//HackerRank Project Euler 003 / Largest prime factor
+
 #include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
 vector<ll> primes;
-int main() {
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-  primes.push_back(2);
-  ll n; cin >> n;
-  for(ll i = 3; i*i <= n; i+=2){
+
+ll lprime(ll n){
+  for(ll i = primes[primes.size()-1]+2; i*i <= n; i+=2){
     bool prime = true;
     for(ll p = 0; p < primes.size() && primes[p]*primes[p] <= i; ++p){
       if(i%primes[p] == 0){
@@ -22,8 +22,26 @@ int main() {
   }
   for(ll i = primes.size()-1; i >= 0; --i){
     if(n % primes[i] == 0){
-      cout << primes[i];
-      break;
+      return primes[i];
     }
+  }
+  return n;
+}
+int main() {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  primes.push_back(2);
+  primes.push_back(3);
+  ll t,n; cin >> t;
+  while(t--){
+    cin >> n;
+    ll maxp = lprime(n);
+    ll lastp = maxp;
+    n /= lastp;
+    while((lastp = lprime(n)) != n){
+      n /= lastp;
+      maxp = max(maxp, lastp);
+    }
+    cout << max(maxp, lastp) << "\n";
   }
 }
