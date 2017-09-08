@@ -15,5 +15,4 @@ int main() {
 		string in; cin >> in;
 		cout << d[in] << ((n)? " ": "");
 	}
-	return 0;
 }
