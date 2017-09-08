@@ -21,5 +21,4 @@ int main() {
 	cin.tie(NULL);
 	ll p, g; cin >> p >> g;
 	cout << few(p,g) << " " << much(p, g) << "\n";
-	return 0;
 }
