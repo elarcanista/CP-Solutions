@@ -19,5 +19,4 @@ int main() {
 		prev = a;
 	}
 	cout << fixed << max((double)first, max((double)last, (double)in/2)) << "\n";
-	return 0;
 }
