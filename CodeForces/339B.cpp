@@ -14,5 +14,4 @@ int main() {
 		last = in;
 	}
 	cout << count;
-	return 0;
 }
