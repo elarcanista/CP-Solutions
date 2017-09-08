@@ -13,5 +13,4 @@ int main() {
 			cout << str << "\n";
 		}
 	}
-	return 0;
 }
