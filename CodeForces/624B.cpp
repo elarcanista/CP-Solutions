@@ -28,5 +28,4 @@ int main() {
 		sum += temp;
 	}
 	cout << sum;
-	return 0;
 }
