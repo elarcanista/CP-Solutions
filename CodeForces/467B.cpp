@@ -21,5 +21,4 @@ int main() {
 		if(s.count() <= k) ++sum;
 	}
 	cout << sum << "\n";
-	return 0;
 }
