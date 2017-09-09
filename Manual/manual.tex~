@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{amsmath}
+
+\lstset{
+  frame=single,
+  numbers=left,
+  language=C++
+}
+\begin{document}
+\tableofcontents
+\section{Data Structures}
+\subsection{Union-Find Disjoint Sets}
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=19, lastline=25,
+  title=build $O(n)$ ]{unionFind.cpp}
+\end{minipage}
+Initializes each value as member of its own set
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=27, lastline=29,
+  title=build $\approx O(1)$]{unionFind.cpp}
+\end{minipage}
+Tells the set $a$ belongs to.
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=31, lastline=43,
+  title=merge $\approx O(1)$]{unionFind.cpp}
+\end{minipage}
+Merge the sets in which $a$ and $b$ belong to.
+
+\subsection{Segment Tree}
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=7, lastline=19,
+  title=build $O(n)$]{segmentTree.cpp}
+\end{minipage}
+Stores the values of \textit{arr} in \textit{tree}, each node stores the
+operation on a different interval of values. Root of \textit{tree} is 1.
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=21, lastline=29,
+  title=query $O(\log n)$]{segmentTree.cpp}
+\end{minipage}
+Returns the given operation on the range $[a, b]$.
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=31, lastline=40,
+  title=update $O(n)$]{segmentTree.cpp}
+\end{minipage}
+Increments every value in the range $[a, b]$ in $p$ units,
+can be modified to change all values in the range to $p$ by changing
+increment operator by assignation.
+
+\subsubsection{Segment Tree with Lazy Propagation}
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=26, lastline=35,
+  title=propagate $O(1)$]{segmentTreeLazyProp.cpp}
+\end{minipage}
+Updates the value on \textit{node} and propagates
+the lazy value to its children.
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=37, lastline=51,
+  title=lazy update $O(\log n)$]{segmentTreeLazyProp.cpp}
+\end{minipage}
+Increments every value in the range $[a, b]$ in $p$ units, lazy values
+are stored in \textit{lazy}, updates on demand.
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=53, lastline=62,
+  title=lazy query $O(\log n)$]{segmentTreeLazyProp.cpp}
+\end{minipage}
+Computes the value of the operation in the range $[a, b]$, updates on demand.
+
+\section{Graphs}
+\subsection{MST}
+\subsubsection{Kruskal}
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=18, lastline=29,
+  title=Kruskal $O(|E|\log |V|)$]{segmentTreeLazyProp.cpp}
+\end{minipage}
+
+
+\subsection{SSSP}
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=10, lastline=32,
+  title=Dijkstra $O(|E|+|V|\log |V|)$]{dijkstra.cpp}
+\end{minipage}
+Computes the shortest distance d[u] from vertex s to every vertex u,
+stops after finding min distance to e.
+
+\end{document}
