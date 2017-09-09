@@ -8,7 +8,7 @@ typedef pair<int, int> ii;
 
 const int INF = 1 << 30;
 const int MAXN = 200008;
-
+k
 ll arr[MAXN];
 ll lazy[MAXN*4];
 ll tree[MAXN*4];
