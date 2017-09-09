@@ -24,5 +24,4 @@ int main() {
 			s.insert(sub);
 		}
 	}
-	return 0;
 }

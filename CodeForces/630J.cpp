@@ -6,5 +6,4 @@ int main() {
 	cin >> n;
 	long long a = 2 * 3 * 2 * 5 * 7 * 2 * 3;
 	cout << n / a;
-	return 0;
 }

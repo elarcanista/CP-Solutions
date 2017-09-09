@@ -32,7 +32,6 @@ int main() {
 	for(int i = 0; i < 3; ++i){
 		eq = true;
 		for(int j = 0; j < 3; ++j){
-			//cout << sa[j] << " " << sb[(i+j)%3];
 			if(sa[j] != sb[(i+j)%3]){
 				eq = false;
 				break;	

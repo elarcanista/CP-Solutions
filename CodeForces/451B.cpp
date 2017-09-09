@@ -35,5 +35,4 @@ int main() {
 	else if(good && ((beg == 0 || v[end] >= v[beg-1]) && (end == (v.size() -1) || v[beg] <= v[end+1])))
 		cout << "yes\n" << beg+1 << " " << end+1;
 	else cout << "no";
-	return 0;
 }

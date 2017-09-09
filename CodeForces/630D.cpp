@@ -6,5 +6,4 @@ int main() {
 	cin.tie(NULL);
 	long long n; cin >> n;
 	cout << (n * (n+1) * 3) + 1 << "\n";
-	return 0;
 }
