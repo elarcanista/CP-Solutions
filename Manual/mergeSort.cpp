@@ -8,7 +8,7 @@ vector<int> merge(vector<int> &a, vector<int> &b){
   unsigned int ahead = 0, bhead = 0;
   //adds the next smallest element to the result list
   while(ahead < a.size() && bhead < b.size()){
-    if(a[ahead] < b[bhead]){
+    if(a[ahead] <= b[bhead]){
       c.push_back(a[ahead]);
       ++ahead;
     }else{
