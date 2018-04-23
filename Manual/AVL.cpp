@@ -39,7 +39,7 @@ class AVL{
 
 public:
   //O(log(n))
-  //Inserts a new element and balances the tree
+  //Inserts a new element. Returns the root of the balanced tree.
   AVL* insert(int n){
     //Normal BST insert
     if(leaf)
