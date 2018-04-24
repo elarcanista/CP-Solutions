@@ -1,17 +1,85 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage{listings}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{positioning}
 
 \lstset{
-  frame=single,
+  frame=leftline,
   numbers=left,
-  language=C++
+  language=C++,
+  basicstyle=\footnotesize\ttfamily,
+  breaklines=true
 }
 \begin{document}
 \tableofcontents
 \section{Data Structures}
-\subsection{Sets}
+\subsection{Binary Search Tree(BST).}
+In a BST a node will always have a greater or smaller key than its left and
+right child respectively.
+\begin{figure}[!ht]
+  \centering
+  \begin{tikzpicture} [
+    tree/.style = {draw, regular polygon, regular polygon sides=3 },
+    node/.style = {draw, circle}
+    ]
+    \node[node] (A) {A};
+    \node[tree, below left=1cm of A] (B) {B};
+    \node[tree] (C) [below right=1cm of A] {C};
+
+    \path (A) edge [above] node {$\leq$} (B.north);
+    \path (A) edge [above] node {$\leq$} (C.north);
+  \end{tikzpicture}
+  \caption{BST}
+\end{figure}
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=6, lastline=17,
+  title=Type definition]{BST.cpp}
+\end{minipage}
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=72, lastline=80,
+  title=Insertion $O(h)$]{BST.cpp}
+\end{minipage}
+Inserting will travel the BST until it finds a null node to place the new value.
+When the BST is not balanced the height $h$ can be at most the number of
+nodes $n$.
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=24, lastline=28,
+  title=Minimum Node $O(h)$]{BST.cpp}
+\end{minipage}
+Allows to find the element with minimum key by moving only leftward down the
+tree. Implementation for finding the maximum key is analogous.\\
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=84, lastline=100,
+  title=Removal $O(h)$]{BST.cpp}
+\end{minipage}
+When removing nodes there are 2 cases.\\
+1: The node to remove has 1 or no children, so its child (the null node in case
+of none) is going to take its place.\\
+2: It has 2 nodes, in which case it is replaced by the least node in its right
+subtree.\\
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=40, lastline=52,
+  title=Successor $O(h)$]{BST.cpp}
+\end{minipage}
+It also allows to find the successor of a number $n$ in the tree(least key
+greater than $n$). Implementation for finding predecessor is analogous.\\
+
+\noindent\begin{minipage}{\linewidth}
+\lstinputlisting[firstline=104, lastline=110,
+  title=Sorting $O(n)$]{BST.cpp}
+\end{minipage}
+Making an in-order traversal of a BST produces an ordered list of its
+elements.\\
+
+\subsection{AVL} 
 \subsubsection{Union-Find Disjoint Sets}
 \noindent\begin{minipage}{\linewidth}
 \lstinputlisting[firstline=19, lastline=25,
