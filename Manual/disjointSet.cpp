@@ -1,10 +1,9 @@
-//Author: Andres-Felipe Ortega-Montoya
-//unionFind.cpp
 #include <bits/stdc++.h>
 #pragma once
 
 using namespace std;
 
+//O(m*ack^-1(n)) with m being number of operations which n of those are addSet()
 class disjointSet{
 public:
   vector<int> parent[];
@@ -13,10 +12,15 @@ public:
   //O(n)
   //Initializes N disjoint sets
   disjointSet(unsigned int N){
-    while(N--){
-      parent.push(-1);
-      rank.push(0);
-    }
+    while(N--)
+      addSet();
+  }
+
+  //O(1)
+  //Adds a new set to the data structure
+  int addSet(){
+    parent.push(-1);
+    rank.push(0);
   }
 
   //O(log(n))
