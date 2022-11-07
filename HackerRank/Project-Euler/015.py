@@ -12,4 +12,4 @@ def choose(m, n):
 
 for _ in range(int(input())):
     m, n = map(int, input().split())
-    print(choose(m + n, m))
+    print(choose(m + n, m) % (10**9 + 7))
