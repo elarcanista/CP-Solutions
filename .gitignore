@@ -1,3 +1,3 @@
-test.out
-test.in
+*.out
+*.in
 test
