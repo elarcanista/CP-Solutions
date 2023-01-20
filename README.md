@@ -5,7 +5,7 @@ HackerRank: [elarcanista](https://www.hackerrank.com/elarcanista)
 
 CodeForces: [arkael](https://codeforces.com/profile/arkael)
 
-UVa: [aortega0703 (830743)](https://onlinejudge.org/index.php?option=onlinejudge&page=show_authorstats&userid=830743)
+UVa: [aortega0703 (830743)](https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=19&page=show_authorstats&userid=830743)
 
 Beecrowd: [aortega](https://www.beecrowd.com.br/judge/en/profile/100057)
 
