@@ -1,6 +1,6 @@
 def bs(q, arr):
     l = 0
-    r = len(arr)
+    r = len(arr) - 1
     while l <= r:
         m = (l + r) // 2
         if arr[m] == q:
