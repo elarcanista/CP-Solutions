@@ -1,7 +1,7 @@
 # Online-Judges profiles
 Rosalind: [aortega0703](https://rosalind.info/users/aortega0703/)
 
-HackerRank: [elarcanista](https://www.hackerrank.com/aortega0703)
+HackerRank: [aortega0703](https://www.hackerrank.com/aortega0703)
 
 CodeForces: [arkael](https://codeforces.com/profile/arkael)
 
