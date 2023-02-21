@@ -1,5 +1,3 @@
-import itertools as iter
-
 for _ in range(int(input())):
     N = int(input())
     a = int(input())
